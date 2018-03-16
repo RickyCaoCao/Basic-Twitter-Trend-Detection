@@ -1,7 +1,15 @@
-# tweepy-anomaly-detection
-Uses tweepy and datadog to detect concerning anomalies from your Twitter feed. Send it to PagerDuty for quick alerts.
+# Basic Twitter Trend Detection
+Uses tweepy and datadog to detect spikes and anomalies from Twitter. Send it to PagerDuty to quickly notify the Social Media Marketing Team.
 
 # setup
-Install `tweepy`, `SOME_ENV_VARS`, and `ANOMALY-DETECTION-TOOL` to your library using pip.
+Required Libraries: `tweepy` and `datadogpy`
 
-- copy/change `config-sample.py` to `config.py` and enter the necessary credentials
+```bash
+  pip install -r requirements.txt
+```
+Then, copy/change `config-sample.py` to `config.py` and enter the necessary credentials.
+
+Finally, install [Pagerduty Integration within Datadog](https://www.pagerduty.com/docs/guides/datadog-integration-guide/) to forward alerts.
+
+# todo
+- allow usage of other realtime streaming tools by adding generic Pagerduty API
