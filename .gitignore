@@ -99,3 +99,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# environment vars
+*config.py
+
+# MAC
+.DS_Store
