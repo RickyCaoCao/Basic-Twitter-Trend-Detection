@@ -11,5 +11,8 @@ Then, copy/change `config-sample.py` to `config.py` and enter the necessary cred
 
 Finally, install [Pagerduty Integration within Datadog](https://www.pagerduty.com/docs/guides/datadog-integration-guide/) to forward alerts.
 
+# Testing
+use `delete_all_tweets.py` to clear statuses
+
 # todo
 - allow usage of other realtime streaming tools by adding generic Pagerduty API

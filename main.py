@@ -5,8 +5,8 @@ from datadog import api as datadog_api
 from datadog import statsd
 
 # Put keywords that you want to filter in an array.
-# QUESTION: Is this AND or OR?
-keywords = ['march madness']
+# NOTE: It filters multiple words using OR boolean logic
+keywords = ['pagerduty', 'devops', 'victorops', 'march madness']
 
 # Reading Configuration File
 consumer_key = cfg.twitter_consumer_key
@@ -30,19 +30,20 @@ datadog_initialize(**datadog_options)
 class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
-        statsd.increment('mention_count')
-        # check RT only incrementation
-        # increment positive + negative
         print(status.text)
+        for word in keywords:
+            if word.lower() in status.text.lower():
+                statsd.increment( word + " tweet_count")
+                # Extra - Check if RT
+                # self.add_to_retweet_board(status)
+                # Extra - Use sentiment analysis
+                print(word)
+
+    def add_to_retweet_board(self, status):
+        if status.retweeted_status:
+            statsd.increment('keyword_and_retweet_count')
 
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = twitter_api.auth, listener = myStreamListener)
 
 myStream.filter(track=keywords)
-
-# ----- Simple Tests ----------------------------------------
-#
-# ----- Test Python API ---------------------------------
-# public_tweets = twitter_api.home_timeline()
-# for tweet in public_tweets:
-#     print tweet.text
