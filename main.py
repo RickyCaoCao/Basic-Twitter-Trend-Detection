@@ -5,8 +5,8 @@ from datadog import api as datadog_api
 from datadog import statsd
 
 # Put keywords that you want to filter in an array.
-# NOTE: It filters multiple words using OR boolean logic
-keywords = ['pagerduty', 'devops', 'victorops', 'march madness']
+# NOTE: Please see README for usage details
+keywords = ['toronto raptors']
 
 # Reading Configuration File
 consumer_key = cfg.twitter_consumer_key
@@ -34,9 +34,6 @@ class MyStreamListener(tweepy.StreamListener):
         for word in keywords:
             if word.lower() in status.text.lower():
                 statsd.increment( word + " tweet_count")
-                # Extra - Check if RT
-                # self.add_to_retweet_board(status)
-                # Extra - Use sentiment analysis
                 print(word)
 
     def add_to_retweet_board(self, status):
