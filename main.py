@@ -31,10 +31,13 @@ class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
         print(status.text)
-        for word in keywords:
-            if word.lower() in status.text.lower():
-                statsd.increment( word + " tweet_count")
-                print(word)
+        for keyword in keywords:
+            words = keyword.split(' ')
+            for word in words:
+                if word.lower() in status.text.lower():
+                    statsd.increment( keyword + " tweet_count")
+                    print("keyword: " + keyword)
+                    break
 
     def add_to_retweet_board(self, status):
         if status.retweeted_status:

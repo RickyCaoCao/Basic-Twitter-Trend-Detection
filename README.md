@@ -35,10 +35,10 @@ Run `python main.py` in terminal and you should start seeing filtered tweets.
 ## Testing
 **(Optional)**
 
-If you would like to manually test specific keywords that typically don't receive traffic, there are some scripts available. However, since Twitter does not offer more than one active stream on their basic API token, you will need to make another account to get another set of API keys.
+If you would like to manually test specific keywords that typically don't receive traffic, there are some scripts available. However, since Twitter does not offer more than one active stream per API token on their free tier, you will need to make another account and get another set of API keys.
 
 ### Setup
-There is another configuration file within `/scripts` for the new account API keys. Follow the same setup instructions as above.
+There is a configuration file within `/scripts` for the new account API keys. Follow the same setup instructions as above.
 
 ### generate\_statuses.py
 Offers you 3 different options to generate statuses that contain a specific keyword. You can modify the keyword within the script.
