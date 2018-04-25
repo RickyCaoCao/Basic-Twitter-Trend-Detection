@@ -2,7 +2,7 @@
 Track any Twitter keyword, mention, or retweet in real-time and instantly alert you via email, SMS, or phone if the keywords are trending.
 
 This should take you **30 minutes or less and with minimal coding knowledge.**
-For a full guide of the system, please checkout the blog post: <https://example.com>
+For a full guide of the system, please checkout the blog post: <https://www.pagerduty.com/blog/how-to-twitter-trend-alert>
 
 This is the staging/testing repo. For the official repository, please visit <https://github.com/PagerDuty/twitter-trend-alert-system>.
 
